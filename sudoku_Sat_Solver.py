@@ -132,16 +132,20 @@ def display_solution(model, number, all_solutions):
             
             f2.write(html)
         
+def pos_aldagai_zenbakia(matrizea, i, j):
+    if matrizea[i][j]!=".":
+        return int(matrizea[i][j])
+    return "."
 
 def encode(clues):
     
     cnf = CNF()
-
-    
-    
+    for i in range(0, len(clues)):
+        for j in range(0, len(clues[i])):
+            val = pos_aldagai_zenbakia(clues, i, j)
+            if val!=".":
+                cnf.append([i*N²+j*N+val])
     return cnf
-
-
 
 def solve_and_decode(clues, cnf, all_solutions):
 
